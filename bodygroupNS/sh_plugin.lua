@@ -100,7 +100,7 @@ end
 
 -- :(
 function PLUGIN:CanProperty(client, str, ent)
-    if str == "persist" and ent:GetClass() == "nut_bodygroup_closet" then
+    if str == "persist" and (IsValid(ent) and ent:GetClass() == "nut_bodygroup_closet") then
         return false
     end
 end
