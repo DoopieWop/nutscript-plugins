@@ -130,15 +130,13 @@ function PANEL:PopulateOptions()
     end
 
     if target:GetNumBodyGroups() > 1 then
+        self.category = self.scroll:Add("DCollapsibleCategory")
+        self.category:Dock(TOP)
+        self.category:SetLabel("Bodygroups")
+
         for i = 0, target:GetNumBodyGroups() - 1 do
             if target:GetBodygroupCount(i) <= 1 then
                 continue
-            end
-
-            if not IsValid(self.category) then
-                self.category = self.scroll:Add("DCollapsibleCategory")
-                self.category:Dock(TOP)
-                self.category:SetLabel("Bodygroups")
             end
 
             local group = target:GetBodygroup(i)
